@@ -1,79 +1,203 @@
-import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+//JAWABAN NOMOR 2
+// import React, { useState } from 'react';
+// import { Text, View, StyleSheet, Button } from 'react-native';
 
-class MateriFlexBox extends Component {
-  render() {
-    return (
-      <View>
-        <View
-          style={{
-            flexDirection: 'row',
-            backgroundColor: '#c8d6e5',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-          }}
-        >
-          <View style={{ backgroundColor: '#ee5253', width: 130, height: 50 }} />
-          <View style={{ backgroundColor: '#feca57', width: 300, height: 50 }} />
-          <View style={{ backgroundColor: '#1dd1a1', width: 40, height: 50 }} />
-          <View style={{ backgroundColor: '#5f27cd', width: 150, height: 50 }} />
-        </View>
+// const App = () => {
+//   const [message, setMessage] = useState("Hello, React Native!");
 
-        <View style={[styles.textRow]}>
-          <Text style={styles.textItem}>Beranda</Text>
-          <Text style={styles.textItem}>Video</Text>
-          <Text style={styles.textItem}>Playlist</Text>
-          <Text style={styles.textItem}>Komunitas</Text>
-          <Text style={styles.textItem}>Channel</Text>
-          <Text style={styles.textItem}>Tentang</Text>
-        </View>
+//   return (
+//     <View style={styles.container}>
+//       <Header />
+//       <Text style={styles.text}>{message}</Text>
+//       <Footer onChangeMessage={() => setMessage("You clicked the button!")} />
+//     </View>
+//   );
+// };
 
-        <View style={styles.avatarContainer}>
-          <Text style={styles.title}>Naruto</Text>
-          <Text style={styles.subtitle}>informatika</Text>
-          <Image
-            source={require('../../assets/images/sasuke.jpg')}
-            style={styles.image}
-          />
-        </View>
+// // Komponen Header
+// const Header = () => (
+//   <View style={styles.header}>
+//     <Text style={styles.headerText}>Welcome to My App</Text>
+//   </View>
+// );
 
-      </View>
-    );
-  }
-}
+// // Komponen Footer
+// const Footer = ({ onChangeMessage }) => (
+//   <View style={styles.footer}>
+//     <Button title="Click Me" onPress={onChangeMessage} />
+//   </View>
+// );
 
-const styles = StyleSheet.create({
-  textRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    marginTop: 20,
-  },
-  textItem: {
-    fontSize: 16,
-    marginHorizontal: 10,
-  },
-  image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginTop: 20,
-    alignSelf: 'right',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'left',
-    marginTop: 10,
-  },
-  subtitle: {
-    textAlign: 'left',
-    fontSize: 14,
-    color: 'gray',
-  },
-  avatarContainer: {
-justifyContent: 'flex-end'
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f0f0f0',
+//   },
+//   text: {
+//     fontSize: 20,
+//     color: '#333',
+//     marginVertical: 20,
+//   },
+//   header: {
+//     position: 'absolute',
+//     top: 50,
+//   },
+//   headerText: {
+//     fontSize: 24,
+//     fontWeight: 'bold',
+//   },
+//   footer: {
+//     position: 'absolute',
+//     bottom: 50,
+//   },
+// });
 
-export default MateriFlexBox;
+// export default App;
+
+
+//JAWABAN NOMOR 3
+// import React from 'react';
+// import { View, Button, StyleSheet } from 'react-native';
+
+// const App = () => {
+//   return (
+//     <View style={styles.container}>
+//       <View style={styles.buttonContainer}>
+//         <View style={[styles.buttonWrapper, styles.buttonBlue]}>
+//           <Button title="Button 1" color="#ffffff" onPress={() => alert('Button 1 pressed!')} />
+//         </View>
+//         <View style={[styles.buttonWrapper, styles.buttonGreen]}>
+//           <Button title="Button 2" color="#ffffff" onPress={() => alert('Button 2 pressed!')} />
+//         </View>
+//       </View>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f0f0f0',
+//   },
+//   buttonContainer: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     width: '80%',
+//   },
+//   buttonWrapper: {
+//     flex: 1,
+//     marginHorizontal: 5,
+//     borderRadius: 5,
+//     overflow: 'hidden', // Agar tombol terlihat bulat pada sudut
+//   },
+//   buttonBlue: {
+//     backgroundColor: '#0000ff', // Biru
+//   },
+//   buttonGreen: {
+//     backgroundColor: '#008000', // Hijau
+//   },
+// });
+
+// export default App;
+
+//JAWABAN NOMOR 4
+// import React, { useState } from 'react';
+// import { View, Text, Button, StyleSheet } from 'react-native';
+
+// const App = () => {
+//   const [clickCount, setClickCount] = useState(0); // Inisialisasi state
+
+//   const handleButtonClick = () => {
+//     setClickCount(clickCount + 1); // Menambahkan jumlah klik
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.text}>Jumlah Klik: {clickCount}</Text>
+//       <Button title="Klik Saya!" onPress={handleButtonClick} />
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5f5f5',
+//   },
+//   text: {
+//     fontSize: 20,
+//     marginBottom: 20,
+//   },
+// });
+
+// export default App;
+
+//JAWABAN NOMOR 5
+// import React from 'react';
+// import { Button, Text, View, StyleSheet } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+
+// // Komponen untuk Layar Pertama
+// const FirstScreen = ({ navigation }) => {
+//   return (
+//     <View style={styles.container}>
+//       <Button
+//         title="Go to Second Screen"
+//         onPress={() => navigation.navigate('SecondScreen')}
+//       />
+//     </View>
+//   );
+// };
+
+// // Komponen untuk Layar Kedua
+// const SecondScreen = () => {
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.text}>This is the Second Screen</Text>
+//     </View>
+//   );
+// };
+
+// // Stack Navigator
+// const Stack = createStackNavigator();
+
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator>
+//         <Stack.Screen
+//           name="FirstScreen"
+//           component={FirstScreen}
+//           options={{ title: 'First Screen' }}
+//         />
+//         <Stack.Screen
+//           name="SecondScreen"
+//           component={SecondScreen}
+//           options={{ title: 'Second Screen' }}
+//         />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5f5f5',
+//   },
+//   text: {
+//     fontSize: 20,
+//     fontWeight: 'bold',
+//   },
+// });
+
+// export default App;
