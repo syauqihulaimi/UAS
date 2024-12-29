@@ -1,203 +1,93 @@
+//JAWABAN NOMOR 1
+// import React, { useState } from 'react';
+
+// const App = () => {
+//   const [tasks, setTasks] = useState([
+//     { id: 1, title: 'Belajar React Native', completed: false },
+//     { id: 2, title: 'Mengerjakan tugas', completed: true },
+//   ]);
+
+//   return null; // Placeholder
+// };
+// export default App;
+
 //JAWABAN NOMOR 2
 // import React, { useState } from 'react';
-// import { Text, View, StyleSheet, Button } from 'react-native';
+// import { View, TextInput, Button, FlatList, Text } from 'react-native';
 
-// const App = () => {
-//   const [message, setMessage] = useState("Hello, React Native!");
+// const TodoApp = () => {
+//   const [tasks, setTasks] = useState([]);
+//   const [newTask, setNewTask] = useState('');
 
-//   return (
-//     <View style={styles.container}>
-//       <Header />
-//       <Text style={styles.text}>{message}</Text>
-//       <Footer onChangeMessage={() => setMessage("You clicked the button!")} />
-//     </View>
-//   );
-// };
-
-// // Komponen Header
-// const Header = () => (
-//   <View style={styles.header}>
-//     <Text style={styles.headerText}>Welcome to My App</Text>
-//   </View>
-// );
-
-// // Komponen Footer
-// const Footer = ({ onChangeMessage }) => (
-//   <View style={styles.footer}>
-//     <Button title="Click Me" onPress={onChangeMessage} />
-//   </View>
-// );
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#f0f0f0',
-//   },
-//   text: {
-//     fontSize: 20,
-//     color: '#333',
-//     marginVertical: 20,
-//   },
-//   header: {
-//     position: 'absolute',
-//     top: 50,
-//   },
-//   headerText: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//   },
-//   footer: {
-//     position: 'absolute',
-//     bottom: 50,
-//   },
-// });
-
-// export default App;
-
-
-//JAWABAN NOMOR 3
-// import React from 'react';
-// import { View, Button, StyleSheet } from 'react-native';
-
-// const App = () => {
-//   return (
-//     <View style={styles.container}>
-//       <View style={styles.buttonContainer}>
-//         <View style={[styles.buttonWrapper, styles.buttonBlue]}>
-//           <Button title="Button 1" color="#ffffff" onPress={() => alert('Button 1 pressed!')} />
-//         </View>
-//         <View style={[styles.buttonWrapper, styles.buttonGreen]}>
-//           <Button title="Button 2" color="#ffffff" onPress={() => alert('Button 2 pressed!')} />
-//         </View>
-//       </View>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#f0f0f0',
-//   },
-//   buttonContainer: {
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//     width: '80%',
-//   },
-//   buttonWrapper: {
-//     flex: 1,
-//     marginHorizontal: 5,
-//     borderRadius: 5,
-//     overflow: 'hidden', // Agar tombol terlihat bulat pada sudut
-//   },
-//   buttonBlue: {
-//     backgroundColor: '#0000ff', // Biru
-//   },
-//   buttonGreen: {
-//     backgroundColor: '#008000', // Hijau
-//   },
-// });
-
-// export default App;
-
-//JAWABAN NOMOR 4
-// import React, { useState } from 'react';
-// import { View, Text, Button, StyleSheet } from 'react-native';
-
-// const App = () => {
-//   const [clickCount, setClickCount] = useState(0); // Inisialisasi state
-
-//   const handleButtonClick = () => {
-//     setClickCount(clickCount + 1); // Menambahkan jumlah klik
+//   const addTask = () => {
+//     if (newTask.trim()) {
+//       setTasks([...tasks, { id: Date.now(), title: newTask, completed: false }]);
+//       setNewTask('');
+//     }
 //   };
 
 //   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>Jumlah Klik: {clickCount}</Text>
-//       <Button title="Klik Saya!" onPress={handleButtonClick} />
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#f5f5f5',
-//   },
-//   text: {
-//     fontSize: 20,
-//     marginBottom: 20,
-//   },
-// });
-
-// export default App;
-
-//JAWABAN NOMOR 5
-// import React from 'react';
-// import { Button, Text, View, StyleSheet } from 'react-native';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
-
-// // Komponen untuk Layar Pertama
-// const FirstScreen = ({ navigation }) => {
-//   return (
-//     <View style={styles.container}>
-//       <Button
-//         title="Go to Second Screen"
-//         onPress={() => navigation.navigate('SecondScreen')}
+//     <View>
+//       <TextInput
+//         placeholder="Tambahkan tugas"
+//         value={newTask}
+//         onChangeText={setNewTask}
+//         style={{ borderWidth: 1, marginBottom: 10 }}
+//       />
+//       <Button title="Tambah" onPress={addTask} />
+//       <FlatList
+//         data={tasks}
+//         keyExtractor={(item) => item.id.toString()}
+//         renderItem={({ item }) => <Text>{item.title}</Text>}
 //       />
 //     </View>
 //   );
 // };
 
-// // Komponen untuk Layar Kedua
-// const SecondScreen = () => {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>This is the Second Screen</Text>
-//     </View>
-//   );
+// export default TodoApp;
+
+//JAWABAN NOMOR 3
+// // actions.js
+// export const addTask = (task) => ({ type: 'ADD_TASK', payload: task });
+
+// // reducer.js
+// const initialState = { tasks: [] };
+
+// export const taskReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case 'ADD_TASK':
+//       return { ...state, tasks: [...state.tasks, action.payload] };
+//     default:
+//       return state;
+//   }
 // };
 
-// // Stack Navigator
-// const Stack = createStackNavigator();
+// // store.js
+// import { createStore } from 'redux';
+// import { taskReducer } from './reducer';
+// export const store = createStore(taskReducer);
 
-// const App = () => {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen
-//           name="FirstScreen"
-//           component={FirstScreen}
-//           options={{ title: 'First Screen' }}
-//         />
-//         <Stack.Screen
-//           name="SecondScreen"
-//           component={SecondScreen}
-//           options={{ title: 'Second Screen' }}
-//         />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
+
+//JAWABAN NOMOR 4
+// const deleteTask = async (taskId) => {
+//     try {
+//       await fetch(`https://api.example.com/tasks/${taskId}`, {
+//         method: 'DELETE',
+//       });
+//       setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+//     } catch (error) {
+//       console.error('Error deleting task:', error);
+//     }
+//   };
+  
+//JAWABAN NOMOR 5
+// import axios from 'axios';
+
+// const addTaskToBackend = async (task) => {
+//   try {
+//     const response = await axios.post('https://api.example.com/tasks', task);
+//     console.log('Task added:', response.data);
+//   } catch (error) {
+//     console.error('Error adding task:', error);
+//   }
 // };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#f5f5f5',
-//   },
-//   text: {
-//     fontSize: 20,
-//     fontWeight: 'bold',
-//   },
-// });
-
-// export default App;
